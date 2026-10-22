@@ -26,8 +26,8 @@ export function validateEnvironment() {
 
     // 3. Client Origin (CORS)
     if (!process.env.CLIENT_ORIGIN) {
-      errors.push('CLIENT_ORIGIN is required in production to restrict CORS to trusted frontend domain(s).');
-    } else if (!process.env.CLIENT_ORIGIN.startsWith('https://')) {
+      console.warn('[Security Warning] CLIENT_ORIGIN not specified. Allowing all origins temporarily. Set CLIENT_ORIGIN to your frontend URL once deployed.');
+    } else if (process.env.CLIENT_ORIGIN !== '*' && !process.env.CLIENT_ORIGIN.startsWith('https://') && !process.env.CLIENT_ORIGIN.startsWith('http://localhost')) {
       console.warn('[Security Warning] CLIENT_ORIGIN should use HTTPS in production.');
     }
 

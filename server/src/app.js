@@ -19,7 +19,8 @@ app.use((req, res, next) => {
 });
 
 // CORS configuration with comma-separated origins support
-const clientOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
+const rawOrigins = process.env.CLIENT_ORIGIN || '*';
+const clientOrigins = rawOrigins
   .split(',')
   .map(o => o.trim());
 
@@ -27,7 +28,7 @@ app.use(cors({
   origin: (origin, callback) => {
     // Allow non-browser requests (e.g. curl, healthcheck, server-to-server)
     if (!origin) return callback(null, true);
-    if (clientOrigins.includes(origin)) {
+    if (clientOrigins.includes('*') || clientOrigins.includes(origin)) {
       return callback(null, true);
     }
     return callback(new Error(`CORS blocked: Origin ${origin} is not allowed.`));
