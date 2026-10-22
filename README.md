@@ -7,6 +7,23 @@ SafeSignal is a secure, responsive full-stack web application designed for women
 
 ---
 
+## 🌐 Live Production Deployments
+
+| Component | Platform | Live URL / Connection | Status |
+| :--- | :--- | :--- | :--- |
+| **Frontend Web App** | **Vercel** | [https://women-safety-incident-reporting-sys.vercel.app](https://women-safety-incident-reporting-sys.vercel.app) | 🟢 **Live & Verified** |
+| **Backend REST API** | **Render** | [https://safesignal-api-5e2y.onrender.com](https://safesignal-api-5e2y.onrender.com) (`/api/health`) | 🟢 **Live & Verified** |
+| **Managed Database** | **Aiven MySQL** | `mysql-37bb07a4-alekyasunkari855-bf1d.c.aivencloud.com:21794` | 🟢 **Connected (TLS)** |
+| **Code Repository** | **GitHub** | [alekya4422/women-safety-incident-reporting-system](https://github.com/alekya4422/women-safety-incident-reporting-system) | 🟢 **Main Branch Sync** |
+
+### 🔑 Verified Administrator Credentials
+- **Admin Portal**: [https://women-safety-incident-reporting-sys.vercel.app/admin/login](https://women-safety-incident-reporting-sys.vercel.app/admin/login)
+- **Username**: `admin`
+- **Password**: `Admin@SafeSignal2026!`
+- **Role**: `superadmin`
+
+---
+
 ## 1. Architecture & Key Assumptions
 
 - **Reporting Principle**: Mobile-first, low-friction, anonymous by default. No account required for reporters. No GPS coordinates mandated.
