@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? 'https://safesignal-api-5e2y.onrender.com/api' : 'http://localhost:5000/api');
 
 // Helper to retrieve token from localStorage if cookie is blocked in dev cross-origin
 function getAuthHeader() {
