@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+server/.env
+server/.env.local
+
+# Build Outputs
+dist/
+client/dist/
+build/
+
+# Local Storage Uploads & Dev Data Store (exclude uploaded evidence and local db)
+storage/uploads/*
+!storage/uploads/.gitkeep
+storage/safesignal_dev_db.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

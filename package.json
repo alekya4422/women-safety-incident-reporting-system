@@ -1,0 +1,26 @@
+{
+  "name": "safesignal-monorepo",
+  "version": "1.0.0",
+  "description": "SafeSignal - Women's Incident Reporting and Community Safety Dashboard",
+  "type": "module",
+  "scripts": {
+    "dev": "node run-dev.js",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "migrate": "npm --prefix server run migrate",
+    "seed": "npm --prefix server run seed",
+    "create-admin": "npm --prefix server run create-admin",
+    "verify-deployment": "npm --prefix server run verify-deployment",
+    "test": "npm --prefix server test"
+  },
+  "keywords": [
+    "safety",
+    "reporting",
+    "dashboard",
+    "full-stack",
+    "express",
+    "react"
+  ],
+  "author": "SafeSignal Team",
+  "license": "ISC"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "safesignal-server",
+  "version": "1.0.0",
+  "description": "SafeSignal Backend REST API",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "migrate": "node src/db/migrate.js",
+    "seed": "node src/db/seed.js",
+    "create-admin": "node src/scripts/createAdmin.js",
+    "verify-deployment": "node src/scripts/verifyDeployment.js",
+    "test": "node --test \"tests/**/*.test.js\""
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1155.0",
+    "@aws-sdk/s3-request-presigner": "^3.1155.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.3",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}

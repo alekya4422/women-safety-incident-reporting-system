@@ -1,0 +1,45 @@
+services:
+  # SafeSignal Backend REST API
+  - type: web
+    name: safesignal-api
+    runtime: node
+    plan: starter # or free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_ORIGIN
+        sync: false # Set to your deployed Vercel/Cloudflare frontend URL, e.g. https://safesignal.vercel.app
+      - key: SESSION_SECRET
+        generateValue: true # Generates a secure random 256-bit secret on Render
+      - key: COOKIE_SAME_SITE
+        value: none
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: DB_HOST
+        sync: false # e.g. mysql-xxxx-aivencloud.com
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: safesignal_prod
+      - key: DB_SSL
+        value: "true"
+      - key: STORAGE_DRIVER
+        value: s3 # or 'local' with a disk mount
+      - key: S3_REGION
+        value: us-east-1
+      - key: S3_BUCKET
+        sync: false
+      - key: S3_ACCESS_KEY_ID
+        sync: false
+      - key: S3_SECRET_ACCESS_KEY
+        sync: false
+      # - key: S3_ENDPOINT
+      #   value: https://<account-id>.r2.cloudflarestorage.com # For Cloudflare R2
