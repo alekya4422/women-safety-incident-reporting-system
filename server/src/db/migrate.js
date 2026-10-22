@@ -24,19 +24,18 @@ async function runMigrations() {
       ? { rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED !== 'false' }
       : undefined;
 
-    // Attempt root / user connection to create DB if needed
+    // Connect directly to target database
     connection = await mysql.createConnection({
       host,
       port,
       user,
       password,
+      database,
       ssl: sslConfig,
       multipleStatements: true
     });
 
-    console.log(`[Migrate] Connected to MySQL on ${host}:${port}. Ensuring database '${database}' exists...`);
-    await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`);
-    await connection.query(`USE \`${database}\`;`);
+    console.log(`[Migrate] Connected to MySQL on ${host}:${port}/${database}. Applying migrations...`);
 
     // Read migration files
     const files = fs.readdirSync(MIGRATIONS_DIR).filter(f => f.endsWith('.sql')).sort();
